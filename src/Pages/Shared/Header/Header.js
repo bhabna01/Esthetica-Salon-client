@@ -21,7 +21,7 @@ const Header = () => {
 
                 <>
                     <li className='font-semibold'><Link to=''>My Reviews</Link></li>
-                    <li className='font-semibold'><Link to=''>Add Service</Link></li>
+                    <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
                     <li className='font-semibold'>
                         <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
                     </li>
