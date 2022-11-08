@@ -1,6 +1,14 @@
 import React from 'react';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 const AddService = () => {
+    const showToastMessage = () => {
+        toast.success('Added Service SuccessFully !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
 
     const handleAddService = event => {
         event.preventDefault();
@@ -35,7 +43,7 @@ const AddService = () => {
             .then(data => {
                 console.log(data)
                 if (data.acknowledged) {
-                    alert('Added service successfully')
+                    showToastMessage();
                     form.reset();
                 }
 
@@ -56,6 +64,7 @@ const AddService = () => {
                 </div>
                 <textarea name="description" className="textarea textarea-bordered h-24 w-full" placeholder="Service Description"></textarea>
                 <input className='btn' type="submit" ></input>
+                <ToastContainer />
             </form>
         </div>
     );
