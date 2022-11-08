@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import ServiceCard from './ServiceCard';
 
-const Services = () => {
+const AllServices = () => {
     const [services, setService] = useState([]);
     useEffect(() => {
-        fetch('http://localhost:5000/service')
+        fetch('http://localhost:5000/services')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])
@@ -14,7 +13,7 @@ const Services = () => {
             <div className='text-center mb-5'>
 
                 <p className='text-2xl font-bold text-orange-600'>Service</p>
-                <h2 className="text-5xl font-semibold">Our Sevice Area</h2>
+                <h2 className="text-5xl font-semibold">All services</h2>
                 <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
             </div>
             <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5'>
@@ -26,14 +25,10 @@ const Services = () => {
                 }
 
             </div>
-            <div className='flex justify-center'>
-
-                <Link to='/services'> <button className="btn btn-active">See All</button></Link>
-            </div>
 
 
         </div>
     );
 };
 
-export default Services;
+export default AllServices;

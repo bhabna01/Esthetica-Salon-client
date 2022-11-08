@@ -7,9 +7,10 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { login } = useContext(AuthContext)
+    const { login, loading } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
+
 
     const from = location.state?.from?.pathname || '/';
 
@@ -49,11 +50,15 @@ const Login = () => {
 
 
             })
-            .catch(error => console.log(error));
+            .catch(error => console.log(error))
+
     }
 
     return (
         <div className="hero w-full my-20">
+
+
+
             <div className="hero-content grid gap-20 md:grid-cols-2 flex-col lg:flex-row">
                 <div className="text-center lg:text-left">
                     <img className='w-3/4' src={img} alt="" />
