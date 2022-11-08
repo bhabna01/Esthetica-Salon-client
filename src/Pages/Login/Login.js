@@ -4,6 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/login-banner.jpg'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
+import useTitle from '../../Hookes/useTitle';
 // import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 // // import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
@@ -12,7 +13,7 @@ const Login = () => {
     const { login, loading, providerLogin } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
-
+    useTitle('Login');
     const googleProvider = new GoogleAuthProvider();
 
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hookes/useTitle';
 
 
 const AddService = () => {
@@ -9,6 +10,7 @@ const AddService = () => {
             position: toast.POSITION.TOP_RIGHT
         });
     };
+    useTitle('Add Services')
 
     const handleAddService = event => {
         event.preventDefault();
