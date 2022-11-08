@@ -1,4 +1,6 @@
+import { GoogleAuthProvider } from 'firebase/auth';
 import React, { useContext } from 'react';
+import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/login-banner.jpg'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
@@ -7,13 +9,27 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
-    const { login, loading } = useContext(AuthContext)
+    const { login, loading, providerLogin } = useContext(AuthContext)
     const location = useLocation();
     const navigate = useNavigate();
 
+    const googleProvider = new GoogleAuthProvider();
+
 
     const from = location.state?.from?.pathname || '/';
+    const handleGoogleSignIn = () => {
+        providerLogin(googleProvider)
+            .then(result => {
+                const user = result.user;
+                console.log(user);
+                // navigate(from, { repalce: true });
+            })
+            .catch(error => {
+                console.error(error)
 
+            })
+
+    }
     const handleLogin = event => {
         event.preventDefault();
         const form = event.target;
@@ -83,9 +99,10 @@ const Login = () => {
                         </div>
                         <div className="form-control mt-6">
                             <input className="btn btn-primary" type="submit" value="Login" />
+                            <button onClick={handleGoogleSignIn} className='btn btn-primary mb-2 mt-5'><FaGoogle></FaGoogle> Login with Google</button>
                         </div>
                     </form>
-                    <p className='text-center'>New to Genius Car <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
+                    <p className='text-center'>New to EstheticaSalon <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                 </div>
             </div>
         </div>
