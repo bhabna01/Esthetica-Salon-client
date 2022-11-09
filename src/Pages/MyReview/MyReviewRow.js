@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 const MyReviewRow = ({ review, handleDelete }) => {
     const { _id, service_name, reviewContent, date, service } = review;
@@ -37,12 +38,14 @@ const MyReviewRow = ({ review, handleDelete }) => {
             </td>
             <td>
                 {reviewContent}
-                <br />
-                <span className="badge badge-ghost badge-sm">Desktop Support Technician</span>
+
             </td>
             <td>{date}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <Link to={`/edit/${_id}`}>
+                    <button className="btn btn-ghost btn-xs">Edit</button>
+                </Link>
+
             </th>
         </tr>
 

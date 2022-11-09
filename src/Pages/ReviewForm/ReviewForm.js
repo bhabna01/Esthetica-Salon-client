@@ -62,12 +62,12 @@ const ReviewForm = ({ service }) => {
             <form onSubmit={handleReview}>
                 <input
                     type="text"
-                    readOnly="true"
+
                     className="form-control bg-success text-white text-center w-75 mx-auto"
                     defaultValue={service.title}
                 />
                 <div className="mb-3">
-                    <label for="exampleFormControlTextarea1" className="form-label">
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
                         Review
                     </label>
                     <textarea
@@ -79,7 +79,7 @@ const ReviewForm = ({ service }) => {
                     ></textarea>
                 </div>
                 <div className="mb-3">
-                    <label for="exampleFormControlTextarea1" className="form-label">
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
                         Rating
                     </label>
                     <select

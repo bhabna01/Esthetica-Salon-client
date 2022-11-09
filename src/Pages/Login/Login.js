@@ -21,7 +21,7 @@ const Login = () => {
             .then(result => {
                 const user = result.user;
                 console.log(user);
-                // navigate(from, { repalce: true });
+                navigate(from, { repalce: true });
             })
             .catch(error => {
                 console.error(error)
@@ -38,7 +38,7 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
-                // navigate(from, { replace: true })
+                navigate(from, { replace: true })
 
 
                 const currentUser = {
