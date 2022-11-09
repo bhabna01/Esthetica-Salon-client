@@ -1,8 +1,14 @@
 import React, { useContext, useEffect, useState } from 'react';
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import MyReviewRow from './MyReviewRow';
-
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const MyReview = () => {
+    const showToastMessage = () => {
+        toast.success('Deleted review Successfully !', {
+            position: toast.POSITION.TOP_RIGHT
+        });
+    };
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
     useEffect(() => {
@@ -22,7 +28,7 @@ const MyReview = () => {
                 .then(data => {
                     console.log(data);
                     if (data.deletedCount > 0) {
-                        alert('deleted Successfully')
+                        showToastMessage();
                         const remaining = reviews.filter(rev => rev._id !== id);
                         setReviews(remaining);
                     }
@@ -31,41 +37,53 @@ const MyReview = () => {
     }
     return (
         <div>
-            <h2 className='text-5xl'>You have {reviews.length}</h2>
-            <div className="overflow-x-auto w-full">
-                <table className="table w-full">
 
-                    <thead>
-                        <tr>
-                            <th>
+            {
+                (reviews.length === 0) ? (
+                    <h1 className='text-center'>No reviews were added</h1>
+                ) :
+                    (
+                        <>
+                            <div className="overflow-x-auto w-full">
+                                <table className="table w-full">
 
-                            </th>
-                            <th>Service Name</th>
-                            <th>Review</th>
-                            <th>Date</th>
-                            <th></th>
+                                    <thead>
+                                        <tr>
+                                            <th>
 
-                        </tr>
-                    </thead>
-                    <tbody>
+                                            </th>
+                                            <th>Service Name</th>
+                                            <th>Review</th>
+                                            <th>Date</th>
+                                            <th></th>
 
-                        {
-                            reviews.map(review => <MyReviewRow
-                                key={review._id}
-                                review={review}
-                                handleDelete={handleDelete}
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-
-                            ></MyReviewRow>)
-                        }
-
-
-                    </tbody>
-
+                                        {
+                                            reviews.map(review => <MyReviewRow
+                                                key={review._id}
+                                                review={review}
+                                                handleDelete={handleDelete}
 
 
-                </table>
-            </div>
+                                            ></MyReviewRow>)
+                                        }
+
+
+                                    </tbody>
+
+
+
+                                </table>
+                            </div>
+                            <ToastContainer />
+
+                        </>
+                    )
+            }
+
         </div>
     );
 };
