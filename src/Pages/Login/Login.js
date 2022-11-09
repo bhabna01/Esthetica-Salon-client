@@ -5,8 +5,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/login-banner.jpg'
 import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../Hookes/useTitle';
-// import { AuthContext } from '../../context/AuthProvider/AuthProvider';
-// // import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 
 const Login = () => {
 
@@ -48,20 +46,20 @@ const Login = () => {
                 }
 
                 console.log(currentUser);
-                fetch('https://genius-car-server-xi-eight.vercel.app/jwt', {
-                    method: 'POST',
-                    headers: {
-                        'content-type': 'application/json'
-                    },
-                    body: JSON.stringify(currentUser)
-                })
-                    .then(res => res.json())
-                    .then(data => {
-                        console.log(data);
-                        // local storage is the easiest but not the best place to store jwt token
-                        localStorage.setItem('genius-token', data.token);
-                        navigate(from, { replace: true });
-                    });
+                // fetch('https://genius-car-server-xi-eight.vercel.app/jwt', {
+                //     method: 'POST',
+                //     headers: {
+                //         'content-type': 'application/json'
+                //     },
+                //     body: JSON.stringify(currentUser)
+                // })
+                //     .then(res => res.json())
+                //     .then(data => {
+                //         console.log(data);
+                //         // local storage is the easiest but not the best place to store jwt token
+                //         localStorage.setItem('genius-token', data.token);
+                //         navigate(from, { replace: true });
+                //     });
 
 
 
@@ -107,11 +105,12 @@ const Login = () => {
                                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                                 </label>
                                             </div>
-                                            <div className="form-control mt-6">
-                                                <input className="btn btn-primary" type="submit" value="Login" />
-                                                <button onClick={handleGoogleSignIn} className='btn btn-primary mb-2 mt-5'><FaGoogle></FaGoogle> Login with Google</button>
-                                            </div>
+
                                         </form>
+                                        <div className="form-control mt-6">
+                                            <input className="btn btn-primary" type="submit" value="Login" />
+                                            <button onClick={handleGoogleSignIn} className='btn btn-primary mb-2 mt-5'><FaGoogle></FaGoogle> Login with Google</button>
+                                        </div>
                                         <p className='text-center'>New to EstheticaSalon <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>
                                     </div>
                                 </div>

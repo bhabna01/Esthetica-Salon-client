@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { FaUser } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 import logo from '../../../assets/logo-svg.png'
 import { AuthContext } from '../../../context/AuthProvider/AuthProvider';
@@ -17,13 +18,22 @@ const Header = () => {
         <li className='font-semibold'><Link to='/'>Home</Link></li>
         <li className='font-semibold'><Link to='/blog'>Blog</Link></li>
         {
-            user?.email ?
+            user?.uid ?
 
                 <>
                     <li className='font-semibold'><Link to=''>My Reviews</Link></li>
                     <li className='font-semibold'><Link to='/addService'>Add Service</Link></li>
                     <li className='font-semibold'>
                         <button onClick={handleLogOut} className='btn-ghost'>Sign Out</button>
+                    </li>
+                    <li>
+                        <span className=' me-2 font-semibold'> {user?.displayName}</span>
+                        {user?.photoURL ?
+                            <img className='me-2 rounded-full' style={{ height: '70px' }} alt="" src={user?.photoURL} title={user?.displayName} />
+                            :
+                            <FaUser></FaUser>
+                        }
+
                     </li>
 
                 </>
@@ -54,9 +64,7 @@ const Header = () => {
                     {menuItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <button className="btn btn-active">Button</button>
-            </div>
+
         </div>
 
 

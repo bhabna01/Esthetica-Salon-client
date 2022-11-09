@@ -5,7 +5,7 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import useTitle from '../../Hookes/useTitle';
 
 const SignUp = () => {
-    const { createUser, loading } = useContext(AuthContext)
+    const { createUser, loading, updateUserProfile } = useContext(AuthContext)
     useTitle('Sign-Up');
 
     const handleSignUp = event => {
@@ -14,13 +14,25 @@ const SignUp = () => {
 
         const email = form.email.value;
         const password = form.password.value;
+        const name = form.name.value;
+        const photoURL = form.photoURL.value;
 
         createUser(email, password)
             .then(result => {
                 const user = result.user;
                 console.log(user);
+                handleUpdateUser(name, photoURL);
             })
             .catch(err => console.error(err))
+    }
+    const handleUpdateUser = (name, photoURL) => {
+        const profile = {
+            displayName: name,
+            photoURL: photoURL
+        }
+        updateUserProfile(profile)
+            .then(() => { })
+            .catch(error => console.error(error))
     }
     return (
         <div>
@@ -45,7 +57,13 @@ const SignUp = () => {
                                                 <label className="label">
                                                     <span className="label-text">Name</span>
                                                 </label>
-                                                <input type="text" name='name' placeholder="name" className="input input-bordered" />
+                                                <input type="text" name='name' placeholder="name" className="input input-bordered" required />
+                                            </div>
+                                            <div className="form-control">
+                                                <label className="label">
+                                                    <span className="label-text">PhotoURL</span>
+                                                </label>
+                                                <input type="text" name='photoURL' placeholder="PhotoURL" className="input input-bordered" required />
                                             </div>
                                             <div className="form-control">
                                                 <label className="label">
