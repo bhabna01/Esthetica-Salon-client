@@ -9,11 +9,11 @@ const Team = () => {
         <div>
             <div className='text-center mb-5'>
 
-                <p className='text-2xl font-bold text-orange-600'>Team</p>
+                <p className='text-2xl font-bold text-secondary'>Team</p>
                 <h2 className="text-5xl font-semibold">My Team</h2>
                 <p> </p>
             </div>
-            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5 pt-5'>
+            <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5 pt-5 justify-items-center'>
                 <div className="card w-96 bg-base-100 shadow-xl">
                     <figure><img src={img1} alt="Shoes" /></figure>
                     <div className="card-body">

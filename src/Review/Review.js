@@ -18,7 +18,7 @@ const Review = ({ service }) => {
 
     return (
         <div>
-            <h3 className="text-warning">
+            <h3 className="text-secondary">
                 Customer Reviews for {service.title}
 
             </h3>
@@ -36,7 +36,7 @@ const Review = ({ service }) => {
                 <>
                     <div className="d-flex">
                         <h3>
-                            Please login to add a review <Link to="/login">Login</Link>
+                            Please login to add a review <Link to="/login"><button className="btn btn-secondary">Login</button></Link>
                         </h3>
                     </div>
                 </>

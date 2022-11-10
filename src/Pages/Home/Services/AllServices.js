@@ -26,9 +26,9 @@ const AllServices = () => {
 
                         <div className='text-center mb-5'>
 
-                            <p className='text-2xl font-bold text-orange-600'>Service</p>
+                            <p className='text-2xl font-bold text-secondary'>Service</p>
                             <h2 className="text-5xl font-semibold">All services</h2>
-                            <p>the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. </p>
+                            <p></p>
                         </div>
                         <div className='grid gap-6 grid-cols-1 md:grid-cols-2 lg:grid-cols-3 pb-5'>
                             {

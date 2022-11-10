@@ -10,7 +10,7 @@ const BannerItem = ({ slide }) => {
                 <img src={image} alt="" className="w-full rounded-xl" />
             </div>
             <div className="absolute flex justify-end transform -translate-y-1/2 right-24  top-1/2">
-                <h1 className='text-5xl font-bold text-white'>
+                <h1 className='lg:text-5xl font-bold text-white '>
                     Get Service<br />
                     at  Affordable <br />
                     price
@@ -19,7 +19,7 @@ const BannerItem = ({ slide }) => {
 
             <div className="absolute flex justify-center transform -translate-y-1/2 w-2/5   top-3/4">
 
-                <button className="btn btn-active">Book an appointment</button>
+                <button className="btn btn-active sm:btn-sm md:btn-md lg:btn-lg">Book an appointment</button>
             </div>
 
             <div className="absolute flex justify-end transform -translate-y-1/2 left-5 right-5 bottom-0">

@@ -32,12 +32,13 @@ const Edit = () => {
     }
 
     return (
-        <div>
-            <h1>Please Update:{storedReviews.reviewContent}</h1>
+        <div className='mb-5'>
+            <h1>Please Update</h1>
             <form onSubmit={handleUpdateReview} >
-
+                <label>Review</label>
                 <input className="input input-bordered w-full max-w-xs" defaultValue={storedReviews.reviewContent} onChange={handleInputChange} type="text" name='reviewContent' placeholder='Review'></input>
                 <br />
+                <label>Rating</label>
                 <input className="input input-bordered w-full max-w-xs" defaultValue={storedReviews.ratings} onChange={handleInputChange} type="text" name='ratings' placeholder='Rating'></input>
                 <br />
                 <button className='btn btn-dark' type="submit">Update</button>

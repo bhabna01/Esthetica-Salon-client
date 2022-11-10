@@ -14,7 +14,7 @@ const ServiceCard = ({ service }) => {
             </PhotoProvider>
             <div className="card-body">
                 <h2 className="card-title">{title}</h2>
-                <p className='text-2xl text-orange-600 font-semibold'>Price: ${price}</p>
+                <p className='text-2xl text-secondary font-semibold'>Price: ${price}</p>
                 <p>
                     {
                         description.length > 100 ?

@@ -3,8 +3,8 @@ import { FaAddressBook, FaBusinessTime, FaPhoneAlt, IconName } from "react-icons
 
 const Information = () => {
     return (
-        <div className='flex h-64 bg-black text-white justify-around items-center mb-10'>
-            <div className='flex'>
+        <div className='flex h-64 bg-black text-white justify-around items-center mb-10 grid md:grid-cols-2 lg:grid-cols-3'>
+            <div className='flex ml-auto  mr-auto'>
                 <FaBusinessTime></FaBusinessTime>
                 <div>
                     <h1>We are open from Monday-Friday</h1>
@@ -12,14 +12,14 @@ const Information = () => {
 
                 </div>
             </div>
-            <div className='flex'>
+            <div className='flex ml-auto  mr-auto'>
                 <FaPhoneAlt></FaPhoneAlt>
                 <div>
                     <h1>Have a Question?</h1>
                     <h1>+00012234455666</h1>
                 </div>
             </div>
-            <div className='flex'>
+            <div className='flex ml-auto mr-auto'>
                 <FaAddressBook></FaAddressBook>
                 <div>
                     <h1>Need a session?Our Address</h1>
