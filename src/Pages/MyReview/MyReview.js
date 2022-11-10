@@ -3,12 +3,14 @@ import { AuthContext } from '../../context/AuthProvider/AuthProvider';
 import MyReviewRow from './MyReviewRow';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import useTitle from '../../Hookes/useTitle';
 const MyReview = () => {
     const showToastMessage = () => {
         toast.success('Deleted review Successfully !', {
             position: toast.POSITION.TOP_RIGHT
         });
     };
+    useTitle('My-review')
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
     useEffect(() => {
