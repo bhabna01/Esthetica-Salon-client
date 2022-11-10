@@ -6,8 +6,8 @@ const BannerItem = ({ slide }) => {
 
 
         <div id={`slide${id}`} className="carousel-item relative w-full">
-            <div className='carousal-img'>
-                <img src={image} alt="" className="w-full rounded-xl" />
+            <div className='carousal-img mt-auto mb-auto mr-auto'>
+                <img src={image} alt="" className="w-full rounded-xl ml-5 " />
             </div>
             <div className="absolute flex justify-end transform -translate-y-1/2 right-24  top-1/2">
                 <h1 className='lg:text-5xl font-bold text-white '>

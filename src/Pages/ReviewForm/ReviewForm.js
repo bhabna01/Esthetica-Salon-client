@@ -67,7 +67,7 @@ const ReviewForm = ({ service }) => {
                     defaultValue={service.title}
                 />
                 <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label font-semibold">
                         Review
                     </label>
                     <textarea
@@ -79,7 +79,7 @@ const ReviewForm = ({ service }) => {
                     ></textarea>
                 </div>
                 <div className="mb-3">
-                    <label htmlFor="exampleFormControlTextarea1" className="form-label">
+                    <label htmlFor="exampleFormControlTextarea1" className="form-label font-semibold">
                         Rating
                     </label>
                     <select
@@ -98,7 +98,7 @@ const ReviewForm = ({ service }) => {
                     </select>
                 </div>
                 <input
-                    className="btn btn-primary"
+                    className="btn btn-dark mb-12"
                     type="submit"
                     value="Submit Review"
                 />
