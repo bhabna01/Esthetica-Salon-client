@@ -33,7 +33,7 @@ const AddService = () => {
         // if (phone.length > 10) {
         //     alert('Phone number should be 10 characters or longer')
         // }
-        fetch('http://localhost:5000/services', {
+        fetch('https://esthetica-salon-server.vercel.app/services', {
             method: 'POST',
             headers: {
                 'content-type': 'application/json'

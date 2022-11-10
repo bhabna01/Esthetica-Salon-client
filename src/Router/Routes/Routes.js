@@ -48,7 +48,7 @@ const router = createBrowserRouter([
             {
                 path: '/details/:id',
                 element: <ServiceDetails></ServiceDetails>,
-                loader: ({ params }) => fetch(`http://localhost:5000/services/${params.id}`)
+                loader: ({ params }) => fetch(`https://esthetica-salon-server.vercel.app/services/${params.id}`)
 
             },
             {
@@ -59,7 +59,7 @@ const router = createBrowserRouter([
             {
                 path: '/edit/:id',
                 element: <PrivateRoute><Edit></Edit></PrivateRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/myReview/${params.id}`)
+                loader: ({ params }) => fetch(`https://esthetica-salon-server.vercel.app/myReview/${params.id}`)
             }
 
         ]

@@ -8,7 +8,7 @@ const AllServices = () => {
     const { loading } = useContext(AuthContext)
     useTitle('All services')
     useEffect(() => {
-        fetch('http://localhost:5000/services')
+        fetch('https://esthetica-salon-server.vercel.app/services')
             .then(res => res.json())
             .then(data => setService(data))
     }, [])

@@ -1,5 +1,5 @@
 import { GoogleAuthProvider } from 'firebase/auth';
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FaGoogle } from 'react-icons/fa';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import img from '../../assets/login-banner.jpg'
@@ -9,6 +9,7 @@ import useTitle from '../../Hookes/useTitle';
 const Login = () => {
 
     const { login, loading, providerLogin } = useContext(AuthContext)
+    const [error, setError] = useState('');
     const location = useLocation();
     const navigate = useNavigate();
     useTitle('Login');
@@ -38,11 +39,14 @@ const Login = () => {
         login(email, password)
             .then(result => {
                 const user = result.user;
+                console.log(user);
+
                 navigate(from, { replace: true })
 
 
                 const currentUser = {
                     email: user.email
+
                 }
 
                 console.log(currentUser);
@@ -105,10 +109,10 @@ const Login = () => {
                                                     <a href="#" className="label-text-alt link link-hover">Forgot password?</a>
                                                 </label>
                                             </div>
-
+                                            <input className="btn btn-primary" type="submit" value="Login" />
                                         </form>
                                         <div className="form-control mt-6">
-                                            <input className="btn btn-primary" type="submit" value="Login" />
+
                                             <button onClick={handleGoogleSignIn} className='btn btn-primary mb-2 mt-5'><FaGoogle></FaGoogle> Login with Google</button>
                                         </div>
                                         <p className='text-center'>New to EstheticaSalon <Link className='text-orange-600 font-bold' to="/signup">Sign Up</Link> </p>

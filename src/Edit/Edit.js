@@ -7,7 +7,7 @@ const Edit = () => {
     const handleUpdateReview = event => {
         event.preventDefault();
         // console.log(review);
-        fetch(`http://localhost:5000/myReview/${storedReviews._id}`, {
+        fetch(`https://esthetica-salon-server.vercel.app/myReview/${storedReviews._id}`, {
             method: 'PATCH',
             headers: {
                 'content-type': 'application/json'

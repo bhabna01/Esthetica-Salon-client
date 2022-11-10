@@ -12,7 +12,7 @@ const MyReview = () => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([])
     useEffect(() => {
-        fetch(`http://localhost:5000/myReview?email=${user?.email}`)
+        fetch(`https://esthetica-salon-server.vercel.app/myReview?email=${user?.email}`)
             .then(res => res.json())
             .then(data => {
                 setReviews(data)
@@ -21,7 +21,7 @@ const MyReview = () => {
     const handleDelete = id => {
         const proceed = window.confirm('Are you sure You want to proceed');
         if (proceed) {
-            fetch(`http://localhost:5000/myReview/${id}`, {
+            fetch(`https://esthetica-salon-server.vercel.app/myReview/${id}`, {
                 method: 'DELETE'
             })
                 .then(res => res.json())
@@ -78,11 +78,12 @@ const MyReview = () => {
 
                                 </table>
                             </div>
-                            <ToastContainer />
+
 
                         </>
                     )
             }
+            <ToastContainer />
 
         </div>
     );

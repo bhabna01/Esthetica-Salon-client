@@ -10,7 +10,7 @@ const Review = ({ service }) => {
     const { user } = useContext(AuthContext);
     const [reviews, setReviews] = useState([]);
     useEffect(() => {
-        fetch(`http://localhost:5000/reviews?service=${service._id}`)
+        fetch(`https://esthetica-salon-server.vercel.app/reviews?service=${service._id}`)
             .then((response) => response.json())
             .then((data) => setReviews(data));
     }, [reviews, service._id]);
